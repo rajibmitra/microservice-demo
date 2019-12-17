@@ -5,7 +5,7 @@ stage("checkout scm") {
   
 }    
 stage("changing dir to docker swarm") {
-    dir('microservices-demo/deploy/docker-swarm/') {
+    dir('deploy/docker-swarm/') {
     sh "ls -lrt "
         
         

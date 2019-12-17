@@ -1,9 +1,15 @@
 node {
 stage("checkout scm") {
-    //checkout scm
-    sh "echo 'this is the checkout scm stage'"
+    
+    checkout scm
+  
 }    
-
+stage("changing dir to docker swarm") {
+    dir('microservices-demo/deploy/docker-swarm/') {
+    ls -lrt 
+        
+}
+}
 
 stage("docker pull and build") {
     sh "echo 'this is the docker pull stage'"

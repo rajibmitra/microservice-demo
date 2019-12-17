@@ -6,22 +6,20 @@ stage("checkout scm") {
 }    
 stage("changing dir to docker swarm") {
     dir('deploy/docker-swarm/') {
-    sh "ls -lrt "
-        
-        
+    sh "ls -lrt "       
 }
 }
 
 stage("docker pull and build") {
-    sh "echo 'this is the docker pull stage'"
+    sh "docker-compose pull'"
 }
 stage("docker push") {
     
-   sh "echo 'this is the docker push stage'"
+   sh "docker-compose bundle"
     }
    
 stage("deployment") {
-    sh "echo 'this is the deployment stage'"
+    sh "docker deploy --bundle-file docker-swarm.dab sockshop"
     }
 }
 

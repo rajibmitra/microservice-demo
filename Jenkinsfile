@@ -11,16 +11,21 @@ stage("changing dir to docker swarm") {
 }
 
 stage("docker pull and build") {
+    dir('deploy/docker-swarm/') {
     sh "docker-compose pull "
 }
-stage("docker push") {
+}
     
+stage("docker push") {
+    dir('deploy/docker-swarm/') {
    sh "docker-compose bundle"
     }
-   
+}
 stage("deployment") {
+    dir('deploy/docker-swarm/') {
     sh "docker deploy --bundle-file docker-swarm.dab sockshop"
     }
+}
 }
 
 

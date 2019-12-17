@@ -11,7 +11,7 @@ stage("changing dir to docker swarm") {
 }
 
 stage("docker pull and build") {
-    sh "docker-compose pull'"
+    sh "docker-compose pull "
 }
 stage("docker push") {
     

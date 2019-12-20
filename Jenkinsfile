@@ -26,6 +26,11 @@ stage("deployment") {
     sh "docker deploy --bundle-file docker-swarm.dab sockshop"
     }
 }
+stage("check for frontend port ") {
+
+    sh "docker service ls  | grep 3000*"
+    
+}
 }
 
 

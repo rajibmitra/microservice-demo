@@ -4,7 +4,7 @@ stage("checkout scm") {
     checkout scm
   
 }    
-stage("changing dir to docker swarm") {
+stage("readiness check and connect to docker swarm) {
     dir('deploy/docker-swarm/') {
     sh "ls -lrt "       
 }
